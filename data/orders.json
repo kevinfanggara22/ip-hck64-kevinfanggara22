@@ -2,11 +2,15 @@
     {
         "UserId": 1,
         "ProductId": 1,
-        "quantity": 1
+        "quantity": 1,
+        "amount": 250000,
+        "status": "paid"
     },
     {
         "UserId": 2,
         "ProductId": 2,
-        "quantity": 2
+        "quantity": 2,
+        "amount": 120000,
+        "status": "pending"
     }
 ]
