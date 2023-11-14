@@ -1,0 +1,12 @@
+[
+    {
+        "UserId": 1,
+        "ProductId": 1,
+        "quantity": 1
+    },
+    {
+        "UserId": 2,
+        "ProductId": 2,
+        "quantity": 2
+    }
+]
