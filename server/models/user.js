@@ -63,31 +63,9 @@ module.exports = (sequelize, DataTypes) => {
       },
       phoneNumber: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notNull: {
-            args: true,
-            msg: "Please input phone number",
-          },
-          notEmpty: {
-            args: true,
-            msg: "Please input phone number",
-          },
-        },
       },
       address: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notNull: {
-            args: true,
-            msg: "Please input shipping address",
-          },
-          notEmpty: {
-            args: true,
-            msg: "Please input shipping address",
-          },
-        },
       },
     },
     {
