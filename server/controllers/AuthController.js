@@ -54,10 +54,10 @@ class AuthController {
     }
   }
 
-  static async googleLogin() {
+  static async googleLogin(req,res,next) {
     try {
       const { googleToken } = req.body;
-      const cliet = new OAuth2Client();
+      const client = new OAuth2Client();
 
       const ticket = await client.verifyIdToken({
         idToken: googleToken,
@@ -80,7 +80,7 @@ class AuthController {
         })
       }
 
-      const access_token = generateAccessToken(user);
+      const access_token = createToken(user.id);
       res.status(200).json({access_token, user})
     } catch (error) {
       console.log(error);

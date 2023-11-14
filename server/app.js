@@ -40,26 +40,26 @@ app.post("/google-sign-in", AuthController.googleLogin)
 app.use(authentication);
 
 // Checkout page
-app.get('/checkout', OrderController.getCheckoutData)
-app.put('/checkout', OrderController.submitCheckout)
+// app.get('/checkout', OrderController.getCheckoutData)
+// app.put('/checkout', OrderController.submitCheckout)
 
 // Midtrans payment
-app.get('/payment/midtrans/token', PaymentController.getMidtransToken)
+// app.get('/payment/midtrans/token', PaymentController.getMidtransToken)
 
 // Midtrans notifications update status
-app.post('/payment/midtrans/notifications', PaymentController.postMidtransNotif)
+// app.post('/payment/midtrans/notifications', PaymentController.postMidtransNotif)
 
 // Show all products
-app.get("/admin/products", authorizationAdmin, AdminController.listProduct)
+// app.get("/admin/products", authorizationAdmin, AdminController.listProduct)
 
 // Create product
-app.post("/admin/products/:id", authorizationAdmin, upload.single('imageUrl'), AdminController.createProduct)
+// app.post("/admin/products/:id", authorizationAdmin, upload.single('imageUrl'), AdminController.createProduct)
 
 // Update product
-app.put("/admin/products/:id", authorizationAdmin, upload.single('imageUrl'), AdminController.updateProduct)
+// app.put("/admin/products/:id", authorizationAdmin, upload.single('imageUrl'), AdminController.updateProduct)
 
 // Delete product
-app.delete("/admin/products/:id", authorizationAdmin, AdminController.deleteProduct)
+// app.delete("/admin/products/:id", authorizationAdmin, AdminController.deleteProduct)
 
 // Error handler
 app.use(errorHandler);
