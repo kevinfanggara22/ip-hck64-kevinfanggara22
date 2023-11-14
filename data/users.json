@@ -1,0 +1,16 @@
+[
+    {
+        "email": "admin@mail.com",
+        "password": "12345",
+        "role": "Admin",
+        "phoneNumber": "12345",
+        "address": "Jakarta Timur"
+    },
+    {
+        "email": "user@mail.com",
+        "password": "12345",
+        "role": "Customer",
+        "phoneNumber": "98765",
+        "address": "Jakarta Selatan"
+    }
+]

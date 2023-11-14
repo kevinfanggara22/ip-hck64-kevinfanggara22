@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Katsuo Stamina",
+        "description": "As intensity of exercise increases, the biological imbalance causes a build-up in blood lactate levels, which leads to muscle fatigue and impaired performance. Lactic acids contain a large amount of unused energy, which can be utilized by the aerobic system. KatsuoStamina helps to quickly convert lactic acid build-up in the body into energy. By using our product, you will dramatically decrease muscle trauma and muscle soreness, leading to quicker recovery times and an increase in performance levels. KatsuoStamina is the perfect supplement for marathons, cross-country running, swimming, rowing, skiing, mountaineering, triathlons, ball sports and other endurance-heavy activities.",
+        "price": 250000,
+        "stock": 100,
+        "imageUrl": "https://images.tokopedia.net/img/cache/900/VqbcmM/2023/10/6/405a3931-dd1b-4942-bef1-765e4d0674d8.jpg"
+    },
+    {
+        "name": "Mag-on Energy Gel",
+        "description": "Mag-on Energy Gel is a water-soluble magnesium added to energy gel, which is essential for quick energy supply in races. Based on maltodextrin and fruit juice, each 41g serving provides 120kcal of energy.",
+        "price": 60000,
+        "stock": 50,
+        "imageUrl": "https://images.tokopedia.net/img/cache/900/VqbcmM/2023/8/22/36239893-9da7-486a-a4c6-45c6fda39919.png"
+    },
+    {
+        "name": "Medalist Energy Gel",
+        "description": "A supplement gel with citric acid recommended for outdoor sports such as running. It is a gel that assumes energy intake while exercising while taking advantage of the suppression and decomposition effect of lactic acid held by citric acid. It is also a semi-solid type that is not sticky, and by chewing when taking it, it increases satisfaction and absorption. It's a compact size of 45g per bottle, so it's not bulky even if you carry it.",
+        "price": 60000,
+        "stock": 50,
+        "imageUrl": "https://images.tokopedia.net/img/cache/900/VqbcmM/2023/9/17/282ad805-884c-4f0a-9716-32a04c321c1e.png"
+    }
+]
