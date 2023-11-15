@@ -45,16 +45,16 @@ class AuthController {
       }
 
       // create jwt
-      const token = createToken({ id: user.id });
+      const access_token = createToken({ id: user.id });
 
-      res.status(200).json({ token });
+      res.status(200).json({ access_token });
     } catch (error) {
       console.log(error);
       next(error);
     }
   }
 
-  static async googleLogin(req,res,next) {
+  static async googleLogin(req, res, next) {
     try {
       const { googleToken } = req.body;
       const client = new OAuth2Client();
@@ -67,21 +67,24 @@ class AuthController {
       const { email, sub } = ticket.getPayload();
 
       let user = await User.findOne({
-        where: { email }
+        where: { email },
       });
 
-      if(!user) {
+      if (!user) {
         // create
-        user = await User.create({
+        user = await User.create(
+          {
             email,
             password: sub,
-        }, {
-            hooks: false
-        })
+          },
+          {
+            hooks: false,
+          }
+        );
       }
 
       const access_token = createToken(user.id);
-      res.status(200).json({access_token, user})
+      res.status(200).json({ access_token, user });
     } catch (error) {
       console.log(error);
       next(error);
