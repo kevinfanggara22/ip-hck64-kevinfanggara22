@@ -50,16 +50,16 @@ app.use(authentication);
 // app.post('/payment/midtrans/notifications', PaymentController.postMidtransNotif)
 
 // Show all products
-// app.get("/admin/products", authorizationAdmin, AdminController.listProduct)
+app.get("/admin/products", authorizationAdmin, AdminController.listProduct)
 
 // Create product
-// app.post("/admin/products/:id", authorizationAdmin, upload.single('imageUrl'), AdminController.createProduct)
+app.post("/admin/products", authorizationAdmin, upload.single('imageUrl'), AdminController.createProduct)
 
 // Update product
-// app.put("/admin/products/:id", authorizationAdmin, upload.single('imageUrl'), AdminController.updateProduct)
+app.put("/admin/products/:id", authorizationAdmin, upload.single('imageUrl'), AdminController.updateProduct)
 
 // Delete product
-// app.delete("/admin/products/:id", authorizationAdmin, AdminController.deleteProduct)
+app.delete("/admin/products/:id", authorizationAdmin, AdminController.deleteProduct)
 
 // Error handler
 app.use(errorHandler);
