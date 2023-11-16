@@ -45,7 +45,7 @@ export default function ButtonMidtrans({grossAmount, productId, quantity, status
     }
 
     return(
-         <button onClick={handleCheckout}>Checkout</button>
+         <button onClick={handleCheckout} className="space-y-4 md:space-y-6">Checkout</button>
     )
    
 }
