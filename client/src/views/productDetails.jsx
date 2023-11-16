@@ -19,7 +19,9 @@ export default function ProductDetails() {
   let { id } = useParams();
   const fetchProductById = async () => {
     try {
-      const { data } = await axios.get("http://localhost:3000/products/" + id);
+      const { data } = await axios.get(
+        "https://p2.kevinfanggara.my.id/products/" + id
+      );
       // console.log(data.price);
       setProductDetails(data);
     } catch (error) {

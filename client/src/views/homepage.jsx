@@ -10,7 +10,7 @@ export default function Homepage() {
   async function fetchProducts() {
     try {
       let data = await axios({
-        url: "http://localhost:3000/products",
+        url: "https://p2.kevinfanggara.my.id/products",
         method: "GET",
       });
       console.log(data);

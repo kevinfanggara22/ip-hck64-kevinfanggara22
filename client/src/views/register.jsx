@@ -26,7 +26,10 @@ export default function RegisterPage() {
     try {
       event.preventDefault();
       // axios
-      const { data } = await axios.post("http://localhost:3000/register", form);
+      const { data } = await axios.post(
+        "https://p2.kevinfanggara.my.id/register",
+        form
+      );
       console.log(data);
 
       // notif success register

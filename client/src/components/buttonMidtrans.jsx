@@ -11,7 +11,7 @@ export default function ButtonMidtrans({
     try {
       const { data } = await axios({
         method: "POST",
-        url: "http://localhost:3000/payment/midtrans/token",
+        url: "https://p2.kevinfanggara.my.id/payment/midtrans/token",
         headers: {
           Authorization: "Bearer " + localStorage.access_token,
         },
@@ -31,7 +31,7 @@ export default function ButtonMidtrans({
           try {
             await axios({
               method: "POST",
-              url: "http://localhost:3000/order",
+              url: "https://p2.kevinfanggara.my.id/order",
               headers: {
                 Authorization: "Bearer " + localStorage.access_token,
               },
@@ -39,7 +39,7 @@ export default function ButtonMidtrans({
                 grossAmount,
                 productId,
                 quantity,
-                status
+                status,
               },
             });
             alert("payment success!");

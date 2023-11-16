@@ -25,7 +25,10 @@ export default function LoginPage() {
     try {
       event.preventDefault();
       // axios
-      const { data } = await axios.post("http://localhost:3000/login", form);
+      const { data } = await axios.post(
+        "https://p2.kevinfanggara.my.id/login",
+        form
+      );
       // console.log(data)
       // store access_token to local storage
       localStorage.access_token = data.access_token;
@@ -116,7 +119,7 @@ export default function LoginPage() {
                       console.log(credentialResponse);
                       try {
                         const { data } = await axios.post(
-                          "http://localhost:3000/google-sign-in",
+                          "https://p2.kevinfanggara.my.id/google-sign-in",
                           {
                             googleToken: credentialResponse.credential,
                           }
