@@ -8,8 +8,8 @@ class AuthController {
   static async register(req, res, next) {
     try {
       console.log(req.body);
-      const { email, password } = req.body;
-      const user = await User.create({ email, password });
+      const { email, password, role } = req.body;
+      const user = await User.create({ email, password, role:"Customer" });
       res
         .status(201)
         .json({ message: `User with email ${user.email} has been created` });

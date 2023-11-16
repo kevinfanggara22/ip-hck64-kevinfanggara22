@@ -8,6 +8,7 @@ export default function RegisterPage() {
   const [form, setForm] = useState({
     email: "",
     password: "",
+    role: "Customer"
   });
   const changeInput = (event) => {
     const { name, value } = event.target;

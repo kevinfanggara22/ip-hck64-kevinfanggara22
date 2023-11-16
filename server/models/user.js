@@ -49,10 +49,10 @@ module.exports = (sequelize, DataTypes) => {
             msg: "Please input password",
           },
         },
-        role: {
-          type: DataTypes.STRING,
-          defaultValue: "Customer",
-        },
+      },
+      role: {
+        type: DataTypes.STRING,
+        defaultValue: "Customer",
       },
       phoneNumber: DataTypes.STRING,
       address: DataTypes.STRING,
