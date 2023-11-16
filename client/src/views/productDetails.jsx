@@ -6,17 +6,17 @@ import Footer from "../components/footer";
 import ButtonMidtrans from "../components/buttonMidtrans";
 
 export default function ProductDetails() {
-  const [productQuantity, setProductQuantity] = useState(null);
+  const [productDetails, setProductDetails] = useState(null);
 
   const changeInput = (event) => {
     const { name, value } = event.target;
-    setProductQuantity(() => {
+    setProductDetails(() => {
       return {
-        ...productQuantity,
+        ...productDetails,
         [name]: value,
       };
     });
-    console.log(productQuantity);
+    console.log(productDetails);
   };
 
   let { id } = useParams();
@@ -30,16 +30,16 @@ export default function ProductDetails() {
     try {
       const { data } = await axios.get("http://localhost:3000/products/" + id);
       console.log(data.price);
-      setProductQuantity(data);
+      setProductDetails(data);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    console.log(event);
-  };
+  // const onSubmit = (event) => {
+  //   event.preventDefault();
+  //   console.log(event);
+  // };
 
   useEffect(() => {
     if (id) {
@@ -56,14 +56,14 @@ export default function ProductDetails() {
             <img
               alt="ecommerce"
               className="lg:w-1/2 w-full h-full object-cover object-center rounded border border-gray-200"
-              src="https://images.tokopedia.net/img/cache/900/VqbcmM/2023/10/6/405a3931-dd1b-4942-bef1-765e4d0674d8.jpg"
+              src={productDetails?.imageUrl}
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               {/* <h2 className="text-sm title-font text-gray-500 tracking-widest">
                 BRAND NAME
               </h2> */}
               <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
-                Katsuo Stamina
+                {productDetails?.name}
               </h1>
               <div className="flex mb-4">
                 <span className="flex items-center">
@@ -156,17 +156,7 @@ export default function ProductDetails() {
                 </span>
               </div>
               <p className="leading-relaxed">
-                As intensity of exercise increases, the biological imbalance
-                causes a build-up in blood lactate levels, which leads to muscle
-                fatigue and impaired performance. Lactic acids contain a large
-                amount of unused energy, which can be utilized by the aerobic
-                system. KatsuoStamina helps to quickly convert lactic acid
-                build-up in the body into energy. By using our product, you will
-                dramatically decrease muscle trauma and muscle soreness, leading
-                to quicker recovery times and an increase in performance levels.
-                KatsuoStamina is the perfect supplement for marathons,
-                cross-country running, swimming, rowing, skiing, mountaineering,
-                triathlons, ball sports and other endurance-heavy activities.
+                {productDetails?.description}
               </p>
               <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
                 <div className="flex">
@@ -182,7 +172,7 @@ export default function ProductDetails() {
               </div>
               <div className="flex">
                 <span className="title-font font-medium text-2xl text-gray-900">
-                  Rp250.000
+                  Rp{productDetails?.price}
                 </span>
                 <ButtonMidtrans
                   grossAmount={grossAmount}
