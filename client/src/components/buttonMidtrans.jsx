@@ -26,10 +26,27 @@ export default function ButtonMidtrans({
       console.log(data.transaction_token);
 
       window.snap.pay(`${data.transaction_token}`, {
-        onSuccess: function (result) {
+        onSuccess: async function (result) {
           /* You may add your own implementation here */
-          alert("payment success!");
+          try {
+            await axios({
+              method: "POST",
+              url: "http://localhost:3000/order",
+              headers: {
+                Authorization: "Bearer " + localStorage.access_token,
+              },
+              data: {
+                grossAmount,
+                productId,
+                quantity,
+                status
+              },
+            });
+            alert("payment success!");
           console.log(result);
+          } catch(error) {
+            console.log(error)
+          }
         },
         onPending: function (result) {
           /* You may add your own implementation here */

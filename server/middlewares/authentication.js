@@ -18,6 +18,7 @@ const authentication = async (req, res, next) => {
         }
         const token = rawToken[1];
         const payload = decodeToken(token);
+        // console.log(payload)
         const user = await User.findByPk(payload.id);
         if(!user) {
             throw { name: "InvalidToken", message: "User Not Found"}

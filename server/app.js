@@ -44,6 +44,9 @@ app.use(authentication);
 // Midtrans payment
 app.post("/payment/midtrans/token", PaymentController.getMidtransToken);
 
+// Midtrans payment
+app.post("/order", PaymentController.createOrder);
+
 // Show all products
 app.get("/admin/products", authorizationAdmin, AdminController.listProduct);
 

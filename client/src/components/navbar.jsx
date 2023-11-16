@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.href = "/login";
+  };
+
+  const token = localStorage.access_token;
+
   return (
     <>
       <nav className="bg-white border-gray-200">
@@ -12,12 +19,21 @@ export default function Navbar() {
           </Link>
           <div className="flex flex-col p-4 md:p-0 mt-4 font-medium md:mt-0 md:border-0 md:bg-white">
             <a>
-              <Link
-                to="/login"
-                className="py-2 pl-3 pr-4 bg-transparent text-sky-800 p-0"
-                aria-current="page">
-                Login
-              </Link>
+              {!token ? (
+                <Link
+                  to="/login"
+                  className="py-2 pl-3 pr-4 bg-transparent text-sky-800 p-0"
+                  aria-current="page">
+                  Login
+                </Link>
+              ) : (
+                <button
+                  onClick={handleLogout}
+                  className="py-2 pl-3 pr-4 bg-transparent text-sky-800 p-0"
+                  aria-current="page">
+                  Logout
+                </button>
+              )}
             </a>
           </div>
         </div>

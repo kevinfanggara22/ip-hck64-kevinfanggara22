@@ -88,7 +88,7 @@ class AuthController {
         );
       }
 
-      const access_token = createToken(user.id);
+      const access_token = createToken({ id: user.id });
 
       // console.log(access_token + " <<<<<<");
       res.status(200).json({ access_token, user });
