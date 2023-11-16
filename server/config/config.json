@@ -1,0 +1,20 @@
+{
+  "development": {
+    "username": "kevinfamianggara",
+    "password": "postgres",
+    "database": "olshop_development",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "kevinfamianggara",
+    "password": "postres",
+    "database": "olshop_test",
+    "host": "localhost",
+    "dialect": "postgres",
+    "logging": false
+  },
+  "production": {
+    "use_env_variable": "DATABASE_URL"
+  }
+}
