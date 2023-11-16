@@ -14,9 +14,6 @@ const errorHandler = (err, req, res, next) => {
         case "InvalidPassword":
             res.status(400).json({message: "Please input password"})
             break;
-        case "EmptyCategoryId":
-            res.status(400).json({message: "CategoryId cannot be empty"})
-            break;
         case "ImageNotFound":
             res.status(400).json({message: "Image file not found"})
             break;
