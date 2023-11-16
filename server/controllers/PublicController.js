@@ -3,7 +3,8 @@ const { Product } = require("../models/index");
 class PublicController {
   static async allProducts(req, res, next) {
     try {
-      const data = await Article.findAll();
+      const data = await Product.findAll();
+       res.status(200).json(data);
     } catch (error) {
       console.log(error);
       next(error);
