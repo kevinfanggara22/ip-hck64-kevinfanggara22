@@ -9,16 +9,19 @@ export default function ProductCard({ product }) {
 
   return (
     <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-      <a href="#">
+      <a href="">
         <img
           className="rounded-t-lg"
+          onClick={() => handlePage(product.id)}
           src={product.imageUrl}
           alt="product image"
         />
       </a>
       <div className="px-5 py-3">
-        <a href="#">
-          <h5 className="text-xl font-semibold tracking-tight text-gray-900">
+        <a href="">
+          <h5
+            className="text-xl font-semibold tracking-tight text-gray-900"
+            onClick={() => handlePage(product.id)}>
             {product.name}
           </h5>
         </a>
@@ -70,7 +73,9 @@ export default function ProductCard({ product }) {
           </span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-xl font-bold text-gray-900">Rp{product.price}</span>
+          <span className="text-xl font-bold text-gray-900">
+            Rp{product.price}
+          </span>
           <a
             href=""
             className="text-white bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"

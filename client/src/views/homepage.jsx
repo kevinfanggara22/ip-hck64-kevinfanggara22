@@ -27,14 +27,18 @@ export default function Homepage() {
     return (
       <>
         <Navbar />
+          <div>
+            <h1 className="text-3xl font-bold leading-tight tracking-tight text-gray-900 px-10 pt-6">
+              Showing All Products
+            </h1>
+          </div>
 
-        <div className="container mx-auto px-10 py-10 grid grid-cols lg:grid-cols-4 md:grid-cols-2 gap-4">
-          {products &&
-            products.map((product) => {
-              return <ProductCard key={product.id} product={product} />;
-            })}
-        </div>
-
+          <div className="mx-auto px-10 py-10 grid grid-cols lg:grid-cols-4 md:grid-cols-2 gap-4">
+            {products &&
+              products.map((product) => {
+                return <ProductCard key={product.id} product={product} />;
+              })}
+          </div>
         <Footer />
       </>
     );
