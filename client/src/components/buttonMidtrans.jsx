@@ -44,8 +44,12 @@ export default function ButtonMidtrans({grossAmount, productId, quantity, status
         }
     }
 
-    return(
-         <button onClick={handleCheckout} className="space-y-4 md:space-y-6">Checkout</button>
-    )
+    return (
+      <button
+        onClick={handleCheckout}
+        className="flex ml-auto text-white bg-sky-700 border-0 py-2 px-6 focus:outline-none hover:bg-sky-800 rounded">
+        Buy Now
+      </button>
+    );
    
 }
