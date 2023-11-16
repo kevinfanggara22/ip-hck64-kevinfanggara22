@@ -31,7 +31,7 @@ export default function ProductDetails() {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    // console.log(event);
+    console.log(event);
   };
 
   useEffect(() => {

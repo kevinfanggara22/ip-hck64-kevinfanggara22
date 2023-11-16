@@ -26,9 +26,10 @@ class PaymentController {
               // transaction token
               let transactionToken = transaction.token;
               console.log("transactionToken:", transactionToken);
+              res.status(200).json({transaction_token: transactionToken});
             });
         } catch(error) {
-
+            console.log("Midtrans error: " + error)
         }
     }
 }

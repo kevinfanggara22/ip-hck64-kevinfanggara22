@@ -4,7 +4,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { GoogleLogin } from "@react-oauth/google";
 
-export default function RegisterPage() {
+export default function LoginPage() {
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -21,23 +21,26 @@ export default function RegisterPage() {
   };
   const navigate = useNavigate();
 
-  const handleRegister = async (event) => {
+  const handleLogin = async (event) => {
     try {
       event.preventDefault();
       // axios
-      const { data } = await axios.post("http://localhost:3000/register", form);
-      console.log(data);
+      const { data } = await axios.post("http://localhost:3000/login", form);
+      // console.log(data)
+      // store access_token to local storage
+      localStorage.access_token = data.access_token;
+      //   console.log(data)
 
-      // notif success register
+      // notif success login
       Swal.fire({
         icon: "success",
-        title: "You have successfully register",
+        title: "You have successfully login",
         showConfirmButton: false,
         timer: 1500,
       });
 
       // navigate
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       console.log(error);
       Swal.fire({
@@ -61,10 +64,10 @@ export default function RegisterPage() {
                     className="h-6"></img>
                 </Link>
                 <h1 className="text-lg font-bold leading-tight tracking-tight text-gray-900">
-                  Register an account
+                  Sign in to your account
                 </h1>
                 <form
-                  onSubmit={handleRegister}
+                  onSubmit={handleLogin}
                   className="space-y-4 md:space-y-6"
                   id="login-form">
                   <div>
@@ -102,27 +105,39 @@ export default function RegisterPage() {
                   <button
                     type="submit"
                     className="w-full text-white bg-sky-700 hover:bg-sky-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                    Register
+                    Sign In
                   </button>
                   <div className="block mb-2 text-sm font-medium text-gray-500 text-center">
-                    Or Register Using
+                    Or Sign In Using
                   </div>
                   <GoogleLogin
                     className="w-full"
-                    onSuccess={(credentialResponse) => {
+                    onSuccess={async (credentialResponse) => {
                       console.log(credentialResponse);
+                      try {
+                        const { data } = await axios.post(
+                          "http://localhost:3000/google-sign-in",
+                          {
+                            googleToken: credentialResponse.credential,
+                          }
+                        );
+                        localStorage.access_token = data.access_token;
+                        navigate("/");
+                      } catch (error) {
+                        console.log(`google signin error: ${error}`);
+                      }
                     }}
                     onError={() => {
-                      console.log("Register Failed");
+                      console.log("Login Failed");
                     }}
                   />
                 </form>
                 <p className="text-sm font-light text-gray-500">
-                  Already have an account?{" "}
+                  Do not have an account?{" "}
                   <Link
-                    to="/login"
+                    to="/register"
                     className="font-medium text-sky-800 hover:underline">
-                    Login here
+                    Register here
                   </Link>
                 </p>
               </div>

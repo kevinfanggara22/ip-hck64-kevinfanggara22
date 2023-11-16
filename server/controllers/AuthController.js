@@ -22,6 +22,7 @@ class AuthController {
   static async login(req, res, next) {
     try {
       const { email, password } = req.body;
+      // console.log(password)
 
       // email & password validation
       if (!email) {
@@ -35,13 +36,13 @@ class AuthController {
       const user = await User.findOne({ where: { email } });
       // console.log(user);
       if (!user) {
-        throw { name: "Unauthenticated" };
+        throw { name: "User Not Found" };
       }
 
       // check password match / not
       const compared = comparePassword(password, user.password);
       if (!compared) {
-        throw { name: "Unauthenticated" };
+        throw { name: "Wrong Password" };
       }
 
       // create jwt
@@ -89,7 +90,7 @@ class AuthController {
 
       const access_token = createToken(user.id);
 
-      console.log(access_token + " <<<<<<");
+      // console.log(access_token + " <<<<<<");
       res.status(200).json({ access_token, user });
     } catch (error) {
       console.log(error);

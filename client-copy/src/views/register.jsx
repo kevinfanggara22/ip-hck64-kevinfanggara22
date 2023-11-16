@@ -31,7 +31,7 @@ export default function RegisterPage() {
       // notif success register
       Swal.fire({
         icon: "success",
-        title: "You have successfully register",
+        title: "You have successfully login",
         showConfirmButton: false,
         timer: 1500,
       });
@@ -102,10 +102,10 @@ export default function RegisterPage() {
                   <button
                     type="submit"
                     className="w-full text-white bg-sky-700 hover:bg-sky-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                    Register
+                    Sign In
                   </button>
                   <div className="block mb-2 text-sm font-medium text-gray-500 text-center">
-                    Or Register Using
+                    Or Sign In Using
                   </div>
                   <GoogleLogin
                     className="w-full"
@@ -113,7 +113,7 @@ export default function RegisterPage() {
                       console.log(credentialResponse);
                     }}
                     onError={() => {
-                      console.log("Register Failed");
+                      console.log("Login Failed");
                     }}
                   />
                 </form>
