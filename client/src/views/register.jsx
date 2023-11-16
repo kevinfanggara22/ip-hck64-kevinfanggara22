@@ -4,7 +4,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { GoogleLogin } from "@react-oauth/google";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -21,17 +21,14 @@ export default function LoginPage() {
   };
   const navigate = useNavigate();
 
-  const handleLogin = async (event) => {
+  const handleRegister = async (event) => {
     try {
       event.preventDefault();
       // axios
-      const { data } = await axios.post("http://localhost:3000/login", form);
-      // console.log(data)
-      // store access_token to local storage
-      localStorage.access_token = data.access_token;
-      //   console.log(data)
+      const { data } = await axios.post("http://localhost:3000/register", form);
+      console.log(data)
 
-      // notif success login
+      // notif success register
       Swal.fire({
         icon: "success",
         title: "You have successfully login",
@@ -40,7 +37,7 @@ export default function LoginPage() {
       });
 
       // navigate
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       console.log(error);
       Swal.fire({
@@ -64,10 +61,10 @@ export default function LoginPage() {
                     className="h-6"></img>
                 </Link>
                 <h1 className="text-lg font-bold leading-tight tracking-tight text-gray-900">
-                  Sign in to your account
+                  Register an account
                 </h1>
                 <form
-                  onSubmit={handleLogin}
+                  onSubmit={handleRegister}
                   className="space-y-4 md:space-y-6"
                   id="login-form">
                   <div>
@@ -121,11 +118,10 @@ export default function LoginPage() {
                   />
                 </form>
                 <p className="text-sm font-light text-gray-500">
-                  Do not have an account?{" "}
-                  <Link
-                    to="/register"
+                  Already have an account?{" "}
+                  <Link to='/login'
                     className="font-medium text-sky-800 hover:underline">
-                    Register here
+                    Login here
                   </Link>
                 </p>
               </div>
