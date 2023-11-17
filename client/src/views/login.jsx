@@ -113,27 +113,29 @@ export default function LoginPage() {
                   <div className="block mb-2 text-sm font-medium text-gray-500 text-center">
                     Or Sign In Using
                   </div>
-                  <GoogleLogin
-                    className="w-full"
-                    onSuccess={async (credentialResponse) => {
-                      console.log(credentialResponse);
-                      try {
-                        const { data } = await axios.post(
-                          "https://p2.kevinfanggara.my.id/google-sign-in",
-                          {
-                            googleToken: credentialResponse.credential,
-                          }
-                        );
-                        localStorage.access_token = data.access_token;
-                        navigate("/");
-                      } catch (error) {
-                        console.log(`google signin error: ${error}`);
-                      }
-                    }}
-                    onError={() => {
-                      console.log("Login Failed");
-                    }}
-                  />
+                  <div className="flex justify-center">
+                    <GoogleLogin
+                      className="w-full"
+                      onSuccess={async (credentialResponse) => {
+                        console.log(credentialResponse);
+                        try {
+                          const { data } = await axios.post(
+                            "https://p2.kevinfanggara.my.id/google-sign-in",
+                            {
+                              googleToken: credentialResponse.credential,
+                            }
+                          );
+                          localStorage.access_token = data.access_token;
+                          navigate("/");
+                        } catch (error) {
+                          console.log(`google signin error: ${error}`);
+                        }
+                      }}
+                      onError={() => {
+                        console.log("Login Failed");
+                      }}
+                    />
+                  </div>
                 </form>
                 <p className="text-sm font-light text-gray-500">
                   Do not have an account?{" "}
