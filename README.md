@@ -6,8 +6,6 @@
 API Documentation
 https://documenter.getpostman.com/view/15364461/2s9YXpTxun
 
-# News Portal API Documentation
-
 ## Endpoints :
 
 List of available endpoints:
